@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>head}}
+</head>
+<body {{#if post}}slug="{{post.slug}}"{{else}}{{#if profile}}slug="{{profile.slug}}"{{/if}}{{/if}}>
+    {{#if website.scripts_top}}{{{js website.scripts_top}}}{{/if}}
+    {{#if page.scripts_top}}{{{js page.scripts_top}}}{{/if}}
+
+    {{#if flash}}
+    <div id="l-flash" class="center container {{#if flash.error}}error{{/if}}"><h4 class="e-text e-text--center">{{{flash.description}}}</i></h4><i class="fas fa-times-circle close-elem" hide="l-flash"></i></div>
+    {{/if}}
+
+    <header id="l-header">
+        {{> header}}
+    </header>
+
+    <div id="l-content">
+        {{{body}}}
+    </div>
+
+    <footer id="l-footer">
+        {{> footer}}
+    </footer>
+
+    {{#if website.scripts}}
+    {{{js website.scripts}}}
+    {{/if}}
+    {{#if page.scripts}}
+    {{{js page.scripts}}}
+    {{/if}}
+</body>
+</html>
